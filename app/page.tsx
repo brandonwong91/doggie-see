@@ -8,6 +8,24 @@ import { useEffect, useState } from "react";
 import useSWR from "swr";
 import useSWRInfinite from "swr/infinite";
 
+interface BreedData {
+  name: string;
+  id: string;
+  bred_for: string | null;
+  breed_group: string | null;
+  height: {
+    metric: string;
+    imperial: string;
+  };
+  weight: {
+    metric: string;
+    imperial: string;
+  };
+  temperament: string;
+  life_span: string;
+  reference_image_id: string | null;
+}
+
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 const getKey = (pageIndex: number, previousPageData: any[]) => {
   if (previousPageData && !previousPageData.length) return null; // Reached the end
@@ -56,6 +74,7 @@ export default function Home() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -96,7 +115,7 @@ export default function Home() {
           temperament,
           life_span,
           reference_image_id,
-        }) => {
+        }: BreedData) => {
           return (
             <Card key={id} className="w-96">
               {/* <Image src={}/> */}
@@ -148,7 +167,7 @@ export default function Home() {
                 temperament,
                 life_span,
                 reference_image_id,
-              }) => (
+              }: BreedData) => (
                 // Render data from paginated pages here
                 <Card key={id} className="w-96">
                   {/* <Image src={}/> */}
