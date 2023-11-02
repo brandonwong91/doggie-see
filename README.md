@@ -1,3 +1,11 @@
+## Objective
+
+Task was to create a search filter with https://api.thedogapi.com/breed
+
+Need to sort the results by: name, height and life span.
+
+Also built with shadcn/ui for RadixUI and tailwind combination.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -5,8 +13,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
-npm run dev
-# or
+npm run dev# or
 yarn dev
 # or
 pnpm dev
