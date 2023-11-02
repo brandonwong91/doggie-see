@@ -18,6 +18,11 @@ import { Button } from "@/components/ui/button";
 import { XCircleIcon } from "lucide-react";
 import FallbackImage from "@/components/FallbackImage";
 import Image from "next/image";
+import {
+  HoverCard,
+  HoverCardTrigger,
+  HoverCardContent,
+} from "@radix-ui/react-hover-card";
 interface BreedData {
   name: string;
   id: string;
@@ -178,8 +183,17 @@ export default function Home() {
       : [];
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-24 gap-4">
-      <div className="flex flex-col gap-4 w-full items-center sticky top-10  backdrop-blur-lg">
+    <main className="flex min-h-screen flex-col items-center p-12 gap-4">
+      <HoverCard>
+        <HoverCardTrigger className="text-2xl font-bold hover:underline">
+          Doggie See
+        </HoverCardTrigger>
+        <HoverCardContent className="h-fit z-50 bg-white p-2 border-2 rounded-md text-xs">
+          <p>Built with: NextJS, Vercel, shadcn/ui</p>
+          <p className="italic">Built by: Brandon Wong</p>
+        </HoverCardContent>
+      </HoverCard>
+      <div className="flex flex-col gap-4 w-full items-center sticky top-10 backdrop-blur-lg">
         <div className="w-full max-w-2xl flex justify-between group focus:ring-1 outline outline-slate-100 border-1 border-gray-300 py-0.5 h-10 rounded-md focus:outline-slate-600 focus-within:outline-slate-600 ">
           <Input
             placeholder="Search breed..."
